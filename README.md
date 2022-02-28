@@ -1,6 +1,10 @@
+**Please note that the answers to the challenge below are in Question One and Two respectively**
+
+
+
+
 **Summer 2022 Data Science Intern Challenge** 
 
-**Please note that the answers to the challenge bbelow are in Question One and Two respectively**
 
 Please complete the following questions, and provide your thought process/work. You can attach your work in a text file, link, etc. on the application page. Please ensure answers are easily visible for reviewers!
 
