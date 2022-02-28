@@ -1,0 +1,45 @@
+
+-- A) How many orders were shipped by Speedy Express in total?
+
+-- Answer = 54
+
+--SQL Query
+
+SELECT O.ShipperID, O.OrderID, S.ShipperName, COUNT(*) TotalCount
+FROM Orders as O
+Inner Join Shippers as S
+on O.ShipperID = S.ShipperID
+Where S.ShipperName = 'Speedy Express';
+
+-- B) What is the last name of the employee with the most orders?
+
+-- Answer = Peacock (40)
+
+-- SQL Query
+
+SELECT * FROM
+(SELECT O.EmployeeID, E.LastName, COUNT(O.OrderID) as MostOrders
+FROM Orders as O
+Inner Join Employees as E
+on O.EmployeeID = E.EmployeeID
+GROUP BY E.LastName
+ORDER BY MostOrders DESC)
+LIMIT 1;
+
+-- C) What product was ordered the most by customers in Germany?
+
+-- Answer = Boston Crab Meat (160)
+
+-- SQL Query
+SELECT Orders.OrderID, Products.ProductName, Customers.Country, SUM(OrderDetails.Quantity) as MostOrdered
+FROM Orders
+Inner Join OrderDetails ON Orders.OrderID = OrderDetails.OrderID
+Inner Join Products ON OrderDetails.ProductID = Products.ProductID
+Inner Join Customers ON Orders.CustomerID = Customers.CustomerID
+WHERE Customers.Country = 'Germany'
+GROUP BY Products.ProductName
+ORDER BY MostOrdered DESC
+LIMIT 1;
+
+
+
